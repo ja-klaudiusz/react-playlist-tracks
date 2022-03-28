@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.ruller-period {
+  width: 100px;
+  height: 1.25rem;
+  position: relative;
+}
+
+.ruller-period span {
+  position: absolute;
+  text-align: left;
+  font-size: 0.6rem;
+  line-height: 1rem;
+  top: 0;
+  left: -0.15rem;
+  color: #797979;
+}
+
+.last-ruller-period {
+  left: 97px !important;
+}
+.ruller {
+  background-image: linear-gradient(
+      90deg,
+      rgba(158, 158, 158, 0.5) 0,
+      rgba(158, 158, 158, 0.5) 1%,
+      transparent 1%
+    ),
+    linear-gradient(180deg, #0f172a 50%, transparent 50%),
+    linear-gradient(
+      90deg,
+      transparent 51%,
+      rgba(158, 158, 158, 0.5) 50%,
+      rgba(158, 158, 158, 0.5) 52%,
+      transparent 51%
+    ),
+    linear-gradient(180deg, #0f172a 70%, transparent 70%),
+    linear-gradient(
+      90deg,
+      transparent 10%,
+      rgba(143, 143, 143, 0.4) 10%,
+      rgba(143, 143, 143, 0.4) 11%,
+      transparent 11%,
+      transparent 20%,
+      rgba(143, 143, 143, 0.4) 20%,
+      rgba(143, 143, 143, 0.4) 21%,
+      transparent 21%,
+      transparent 30%,
+      rgba(143, 143, 143, 0.4) 30%,
+      rgba(143, 143, 143, 0.4) 31%,
+      transparent 31%,
+      transparent 40%,
+      rgba(143, 143, 143, 0.4) 40%,
+      rgba(143, 143, 143, 0.4) 41%,
+      transparent 41%,
+      transparent 60%,
+      rgba(143, 143, 143, 0.4) 60%,
+      rgba(143, 143, 143, 0.4) 61%,
+      transparent 61%,
+      transparent 70%,
+      rgba(143, 143, 143, 0.4) 70%,
+      rgba(143, 143, 143, 0.4) 71%,
+      transparent 71%,
+      transparent 80%,
+      rgba(143, 143, 143, 0.4) 80%,
+      rgba(143, 143, 143, 0.4) 81%,
+      transparent 81%,
+      transparent 90%,
+      rgba(143, 143, 143, 0.4) 90%,
+      rgba(143, 143, 143, 0.4) 91%,
+      transparent 91%
+    );
+  background-size: 100px 13px;
+  background-repeat: repeat-x;
+  min-height: 20px;
+  white-space: nowrap;
+  background-position-y: 7px;
+  border-bottom: 1px solid #2f3647;
+}
+
+.line-border span {
+  color: #909090;
+  position: absolute;
+  left: -2px;
+  font-size: 10px;
+  background: #0f172a;
+}
+
+.tracklist {
+  min-width: 230px;
+  border-right: 1px solid #0f172a;
+  -webkit-box-shadow: 15px 0px 35px -10px rgb(15 23 42);
+  -moz-box-shadow: 15px 0px 35px -10px rgb(15 23 42);
+  box-shadow: 15px 0px 35px -10px rgb(15 23 42);
+  z-index: 21;
+}
+/* SCROLLBAR */
+
+.scrollbar__wrapper {
+  position: relative;
+  height: fit-content;
+}
+.scrollbar__wrapper:hover > .scrollbar__thumbPlaceholder {
+  opacity: 1;
+}
+.scrollbar__scroller {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: auto !important;
+}
+.scrollbar__scroller::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar__content--vertical {
+  display: block;
+}
+.scrollbar__content--vertical.scrollbar__content--fixedThumb {
+  display: inline-block;
+}
+.scrollbar__content--horizontal {
+  display: inline-flex;
+  min-width: 100%;
+}
+.scrollbar__thumbPlaceholder {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  contain: strict;
+  transition: opacity 275ms ease;
+}
+.scrollbar__thumbPlaceholder--visible {
+  display: inline-flex;
+}
+.scrollbar__thumbPlaceholder--vertical {
+  top: 3px;
+  right: 0;
+  width: 12px;
+  z-index: 100;
+}
+.scrollbar__thumbPlaceholder--horizontal {
+  flex-direction: column;
+  left: 3px;
+  bottom: 0;
+  height: 12px;
+  z-index: 100;
+}
+.scrollbar__thumbPlaceholder--autoHide {
+  opacity: 0;
+}
+.scrollbar__thumbPlaceholder--scrolling {
+  opacity: 1;
+}
+.scrollbar__thumbPlaceholder:hover > .scrollbar__thumb {
+  opacity: 1;
+}
+.scrollbar__thumbPlaceholder--autoExpand:hover > .scrollbar__thumb--vertical {
+  transform: scale3d(1.5, 1, 1);
+}
+.scrollbar__thumbPlaceholder--autoExpand:hover > .scrollbar__thumb--horizontal {
+  transform: scale3d(1, 1.5, 1);
+}
+.scrollbar__thumb {
+  background-color: rgb(100 125 139);
+  opacity: 0.6;
+  transition: opacity 275ms ease, transform 200ms ease;
+  contain: strict;
+  border-radius: 4px;
+}
+.scrollbar__thumb--vertical {
+  width: 66.667%;
+  height: 100%;
+}
+.scrollbar__thumb--horizontal {
+  height: 66.667%;
+  width: 100%;
+}
+.scrollbar__shepherd {
+  display: none;
+  position: absolute;
+  contain: strict;
+}
+.scrollbar__shepherd--vertical {
+  width: 0%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+.scrollbar__shepherd--horizontal {
+  width: 100%;
+  height: 0%;
+  bottom: 0;
+  left: 0;
+}
+.scrollbar__shepherd--visible {
+  display: block;
+}
+/* END SCROLLBAR */
