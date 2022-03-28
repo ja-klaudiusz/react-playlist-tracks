@@ -8,7 +8,7 @@ Try it on Vercel [React Playlist Tracks](https://react-playlist-tracks.vercel.ap
 
 <div align="center">
   <a href="https://react-playlist-tracks.vercel.app" title="React Playlist Tracks">
-      <img src="https://raw.githubusercontent.com/ja-klaudiusz/react-playlist-tracks/tree/main/public/images/screen.png" alt="React Playlist Tracks" />
+      <img src="https://raw.githubusercontent.com/ja-klaudiusz/react-playlist-tracks/main/public/images/screen.png" alt="React Playlist Tracks" />
   </a>
 </div>
 
