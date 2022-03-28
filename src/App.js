@@ -42,7 +42,7 @@ export default function App() {
           </div>
           <div className="flex flex-col h-full items-center justify-center">
             <h1 className=" text-5xl font-bold opacity-50 font-sans drop-shadow-lg shadow-black w-1/3">
-              React Playlist Tracks
+              React Playlist Tracks Demo
             </h1>
             <p className="text-sm opacity-60 pt-4 w-1/3">
               React playlist builder with the ability of add, edit and delete

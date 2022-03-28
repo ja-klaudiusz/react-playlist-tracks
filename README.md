@@ -12,13 +12,13 @@ Try it on Vercel [React Playlist Tracks](https://react-playlist-tracks.vercel.ap
   </a>
 </div>
 
-<div align="center">
+<div align="center" style="padding-top: 40px;">
   <a href="https://react-playlist-tracks.vercel.app" title="React Playlist Tracks - Add new element">
       <img src="https://raw.githubusercontent.com/ja-klaudiusz/react-playlist-tracks/main/public/images/screen3.png" alt="React Playlist Tracks - Add new element" />
   </a>
 </div>
 
-<div align="center">
+<div align="center" style="padding-top: 40px;">
   <a href="https://react-playlist-tracks.vercel.app" title="React Playlist Tracks - Edit element on right click">
       <img src="https://raw.githubusercontent.com/ja-klaudiusz/react-playlist-tracks/main/public/images/screen2.png" alt="React Playlist Tracks - Edit element on right click" />
   </a>
