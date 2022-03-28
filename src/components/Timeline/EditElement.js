@@ -92,7 +92,7 @@ const EditElement = ({ elementId }) => {
 
   return (
     <Modal
-      title="Add new element"
+      title="Edit element"
       showModal={show}
       onReject={handleRejectModal}
       onConfirm={handleSubmit(handleConfirmModal)}
