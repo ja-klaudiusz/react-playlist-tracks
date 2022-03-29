@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Controls from "./controls";
+import Controls from "./Controls";
 import { useDispatch } from "react-redux";
 import { useRequestAnimationFrame } from "request-animation-frame-hook";
-import { updateAsync, setTimerState } from "../../redux/timer/timerSlice";
-import { TreeContext } from "../../store/context/TreeContext";
+import { updateAsync, setTimerState } from "../../../redux/timer/timerSlice";
+import { TreeContext } from "../../../store/context/TreeContext";
 import { useSelector } from "react-redux";
 const ControlConsole = ({}) => {
   const data = useSelector((state) => state.data.masterData);

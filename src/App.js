@@ -1,10 +1,10 @@
 import React from "react";
 import IntervalTree from "./utils/intervalTree";
-import ControlsConsole from "./components/ControlConsole";
+import ControlsConsole from "./components/Playlist/ControlConsole";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import "./styles.css";
-import Timeline from "./components/Timeline";
+import Timeline from "./components/Playlist/Timeline";
 import { TreeContext } from "./store/context/TreeContext";
 import { useSelector } from "react-redux";
 
@@ -32,7 +32,7 @@ export default function App() {
             >
               <svg
                 viewBox="0 0 16 16"
-                class="w-8 h-8"
+                className="w-8 h-8"
                 fill="currentColor"
                 aria-hidden="true"
               >

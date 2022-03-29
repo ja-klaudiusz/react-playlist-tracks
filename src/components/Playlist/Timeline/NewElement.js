@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 
-import Modal from "../Modal";
-import { newTrack, newElement } from "../../redux/data/dataSlice";
-import CreatableSelectControlled from "../UiElements/CreatableSelectControlled";
-import InputText from "../UiElements/InputText";
-import InputNumber from "../UiElements/InputNumber";
-import useDebounce from "../../hooks/use-debounce";
+import Modal from "../../UiElements/Modal";
+import { newTrack, newElement } from "../../../redux/data/dataSlice";
+import CreatableSelectControlled from "../../UiElements/CreatableSelectControlled";
+import InputText from "../../UiElements/InputText";
+import InputNumber from "../../UiElements/InputNumber";
+import useDebounce from "../../../hooks/use-debounce";
 
 const NewElement = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -18,7 +18,6 @@ const NewElement = ({ onClose }) => {
     register,
     control,
     watch,
-    reset,
     formState: { errors },
   } = useForm({
     mode: "onBlur",

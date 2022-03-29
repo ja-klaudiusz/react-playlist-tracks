@@ -4,8 +4,8 @@ import {
   delElement,
   cloneElement,
   setElementInEdit,
-} from "../../redux/data/dataSlice";
-import IconButton from "../UiElements/IconButton";
+} from "../../../redux/data/dataSlice";
+import IconButton from "../../UiElements/IconButton";
 
 const ElementMenu = ({
   bgColor,

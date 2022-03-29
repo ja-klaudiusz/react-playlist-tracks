@@ -1,79 +1,13 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateTotalPeriod } from "../../redux/data/dataSlice";
-import { getTracks } from "../../utils";
-import CustomScrollbar from "../CustomScrollbar";
-import { TreeContext } from "../../store/context/TreeContext";
-import Element from "./Element";
+import { updateTotalPeriod } from "../../../redux/data/dataSlice";
+import { getTracks } from "../../../utils";
+import CustomScrollbar from "../../UiElements/CustomScrollbar";
+import { TreeContext } from "../../../store/context/TreeContext";
 import Vertical from "./Vertical";
-
-const Track = ({ data, even }) => {
-  const { elements, trackId } = data;
-  const track = useSelector((state) => state.data.tracks[trackId]);
-  return (
-    <div
-      className={
-        (even ? "bg-slate-600 text-slate-300" : "bg-slate-700 text-slate-400") +
-        " h-8 px-2 w-full text-left text-sm flex flex-col justify-center"
-      }
-    >
-      <div>{track?.name}</div>
-    </div>
-  );
-};
-
-const TrackElements = ({ data, even }) => {
-  const { elements, trackId } = data;
-
-  return (
-    <div
-      className={
-        (even ? "bg-slate-800" : "bg-slate-900") +
-        " flex flex-row justify-start items-center py-1 border-b border-slate-800 relative"
-      }
-    >
-      <div className="w-full h-6 flex flex-row justify-start ">
-        {elements.map((element) => {
-          return (
-            <Element
-              key={element.id}
-              id={element.id}
-              periodStart={element.period[0]}
-              periodEnd={element.period[1]}
-              trackId={element.trackId}
-              elementName={element.elementName}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-const Ruller = ({ rullerWidth }) => {
-  const rulerLenght = rullerWidth / 100;
-  const ruller = Array.from({ length: rulerLenght }, (v, k) => k);
-
-  return (
-    <div
-      className="h-5 bg-slate-900 -mt-5 z-20 min-w-full sticky top-0 flex flex-row justify-start ruller"
-      style={{ width: rullerWidth }}
-    >
-      {ruller.map((line, i) => {
-        return (
-          <div className="ruller-period" key={i}>
-            <span className="text-slate-300 bg-slate-900">{line}</span>
-            {ruller.length - 1 === i ? (
-              <span className="text-slate-300 bg-slate-900 last-ruller-period">
-                {Math.floor(rulerLenght)}
-              </span>
-            ) : null}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+import Track from "./Track";
+import TrackElements from "./TrackElements";
+import Ruller from "./Ruller";
 
 const Timeline = () => {
   const dispatch = useDispatch();
