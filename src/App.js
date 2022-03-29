@@ -1,28 +1,19 @@
 import React from "react";
 import IntervalTree from "./utils/intervalTree";
-import ControlsConsole from "./components/Playlist/ControlConsole";
+import Controller from "./components/Controller";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import "./styles.css";
-import Timeline from "./components/Playlist/Timeline";
+import Playlist from "./components/Playlist";
 import { TreeContext } from "./store/context/TreeContext";
-import { useSelector } from "react-redux";
-
-const Tree = ({ tree }) => {
-  const data = useSelector((state) => state.data.masterData);
-  tree.clear();
-  for (let elementId of Object.keys(data)) {
-    const element = data[elementId];
-    tree.insert(element.period[0], element.period[1], elementId);
-  }
-  return null;
-};
+import Starter from "./components/Controller/Starter";
+import IntervalTreeUpdater from "./components/Controller/IntervalTreeUpdater";
 
 export default function App() {
   const tree = new IntervalTree();
   return (
     <Provider store={store}>
-      <Tree tree={tree} />
+      <IntervalTreeUpdater tree={tree} />
       <TreeContext.Provider value={tree}>
         <div className="App flex flex-col justify-end h-screen relative">
           <div className="absolute top-3 right-4">
@@ -51,8 +42,9 @@ export default function App() {
               elements.
             </p>
           </div>
-          <ControlsConsole />
-          <Timeline />
+          <Starter tree={tree} />
+          <Controller />
+          <Playlist />
         </div>
       </TreeContext.Provider>
     </Provider>

@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateTotalPeriod } from "../../../redux/data/dataSlice";
-import { getTracks } from "../../../utils";
-import CustomScrollbar from "../../UiElements/CustomScrollbar";
-import { TreeContext } from "../../../store/context/TreeContext";
+import { updateTotalPeriod } from "../../redux/data/dataSlice";
+import { getTracks } from "../../utils";
+import CustomScrollbar from "../UiElements/CustomScrollbar";
+import { TreeContext } from "../../store/context/TreeContext";
 import Vertical from "./Vertical";
 import Track from "./Track";
 import TrackElements from "./TrackElements";
 import Ruller from "./Ruller";
 
-const Timeline = () => {
+const Playlist = () => {
   const dispatch = useDispatch();
   const tree = useContext(TreeContext);
   const periodMin = tree?.root?.minimumLow || 0;
@@ -86,4 +86,4 @@ const Timeline = () => {
   );
 };
 
-export default Timeline;
+export default Playlist;

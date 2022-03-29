@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, memo } from "react";
 import { useSelector } from "react-redux";
-import useOnScreen from "../../../hooks/use-onscreen";
+import useOnScreen from "../../hooks/use-onscreen";
 
 const OnScreenSensor = memo(({ updateScroll }) => {
   const ref = useRef();

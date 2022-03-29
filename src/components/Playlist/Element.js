@@ -1,16 +1,16 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Draggable from "react-draggable";
-import { updateElementPeriod } from "../../../redux/data/dataSlice";
+import { updateElementPeriod } from "../../redux/data/dataSlice";
 import ElementMenu from "./ElementMenu";
 import EditElement from "./EditElement";
-import ElementDetails from "./ElementDetails";
+import ElementController from "../Controller/ElementController";
 
 const Element = React.memo(
   ({ id, periodStart, periodEnd, trackId, elementName }) => {
     const [showMenu, setShowMenu] = useState(false);
     const inEdit = useSelector((state) => state.data.elementInEdit === id);
-    const playingTime = useSelector((state) => state.timer.nowPlaying[id]);
+    const duration = useSelector((state) => state.timer.nowPlaying[id]);
     const dispatch = useDispatch();
     const timeDivider = useSelector((state) => state.settings.timeDivider);
     const [isDraggable, setIsDraggable] = useState(false);
@@ -36,6 +36,7 @@ const Element = React.memo(
 
     return (
       <>
+        <ElementController elementId={id} duration={duration} />
         <Draggable
           axis="x"
           bounds="parent"
@@ -59,13 +60,11 @@ const Element = React.memo(
               width: (periodEnd - periodStart) / timeDivider,
             }}
           >
-            <ElementDetails
-              id={id}
-              playingTime={playingTime}
-              draggClass={
+            <div
+              className={
                 (isDraggable
                   ? "cursor-grabbing bg-lime-600 text-lime-100"
-                  : (!playingTime
+                  : (!duration
                       ? inEdit
                         ? "bg-green-700 text-green-100"
                         : " bg-pink-700 text-pink-100"
@@ -74,7 +73,7 @@ const Element = React.memo(
               }
             >
               {elementName}
-            </ElementDetails>
+            </div>
             {showMenu ? (
               <ElementMenu
                 timeDivider={timeDivider}

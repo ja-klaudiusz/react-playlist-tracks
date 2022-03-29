@@ -1,57 +1,57 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setNowPlaying } from "../../../redux/timer/timerSlice";
+import { setNowPlaying } from "../../redux/timer/timerSlice";
 import { useRequestAnimationFrame } from "request-animation-frame-hook";
 
-const ElementDetails = ({ id, playingTime, draggClass, children }) => {
+const ElementController = ({ elementId, duration }) => {
   const dispatch = useDispatch();
   const [isPlaying, setSetIsPlaying] = useState(false);
   const timerPause = useSelector((state) => state.timer.timerState.pause);
   const timerStop = useSelector((state) => state.timer.timerState.stop);
 
   const autoStopCb = () => {
-    dispatch(setNowPlaying({ id, isPlaying: false }));
+    dispatch(setNowPlaying({ elementId, isPlaying: false }));
     setSetIsPlaying(false);
   };
 
   const [start, pause, setStart, setStop] = useRequestAnimationFrame(
     (data) => {},
-    { stopRules: [playingTime || 0, false], autoStopCb }
+    { stopRules: [duration || 0, false], autoStopCb }
   );
 
   useEffect(() => {
-    if (!start && !pause && playingTime && !timerPause && !isPlaying) {
+    if (!start && !pause && duration && !timerPause && !isPlaying) {
       setSetIsPlaying(true);
       setStart();
     } else if (
       !start &&
       pause &&
-      playingTime &&
+      duration &&
       !timerPause &&
       !timerStop &&
       isPlaying
     ) {
       setStart();
     }
-  }, [start, pause, playingTime, timerPause, timerStop, isPlaying]);
+  }, [start, pause, duration, timerPause, timerStop, isPlaying]);
 
   useEffect(() => {
-    if (start && !pause && timerPause && playingTime) {
-      console.log("pauza", id);
+    if (start && !pause && timerPause && duration) {
+      console.log("pauza", elementId);
       setStart();
     }
-  }, [start, pause, timerPause, playingTime]);
+  }, [start, pause, timerPause, duration]);
 
   useEffect(() => {
-    if (playingTime && timerStop) {
-      console.log(id, "stop");
+    if (duration && timerStop) {
+      console.log(elementId, "stop");
       setStop();
       setSetIsPlaying(false);
-      dispatch(setNowPlaying({ id, isPlaying: false }));
+      dispatch(setNowPlaying({ elementId, isPlaying: false }));
     }
-  }, [timerStop, playingTime]);
+  }, [timerStop, duration]);
 
-  return <div className={draggClass}>{children}</div>;
+  return null;
 };
 
-export default ElementDetails;
+export default ElementController;

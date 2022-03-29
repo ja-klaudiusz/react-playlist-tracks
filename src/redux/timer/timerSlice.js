@@ -23,11 +23,11 @@ export const timerSlice = createSlice({
     },
     setNowPlaying: (state, action) => {
       let newNowPlaying = { ...state.nowPlaying };
-      const { id, isPlaying, timeLong } = action.payload;
-      if (isPlaying && timeLong) {
-        newNowPlaying[id] = timeLong;
+      const { elementId, isPlaying, duration } = action.payload;
+      if (isPlaying && duration) {
+        newNowPlaying[elementId] = duration;
       } else {
-        delete newNowPlaying[id];
+        delete newNowPlaying[elementId];
       }
 
       state.nowPlaying = {

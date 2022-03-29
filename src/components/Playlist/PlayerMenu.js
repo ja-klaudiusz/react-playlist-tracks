@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setTimerState } from "../../../redux/timer/timerSlice";
+import { setTimerState } from "../../redux/timer/timerSlice";
 
-import NewElement from "../Timeline/NewElement";
-import IconButton from "../../UiElements/IconButton";
+import NewElement from "./NewElement";
+import IconButton from "../UiElements/IconButton";
 import Timer from "./Timer";
 
-const Controls = ({ start, pause, setStart, setStop, tree }) => {
+const PlayerMenu = ({ start, pause, setStart, setStop, periodMax }) => {
   const [modalType, setModalType] = useState(null);
   const dispatch = useDispatch();
 
@@ -60,7 +60,7 @@ const Controls = ({ start, pause, setStart, setStop, tree }) => {
           disabled={pause || start}
         />
       </div>
-      <Timer tree={tree} />
+      <Timer periodMax={periodMax} />
       {modalType === "new_element" ? (
         <NewElement
           onClose={() => {
@@ -72,4 +72,4 @@ const Controls = ({ start, pause, setStart, setStop, tree }) => {
   );
 };
 
-export default Controls;
+export default PlayerMenu;
